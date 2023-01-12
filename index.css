@@ -1,26 +1,45 @@
 html {
-    background-color: black;
-    color: white;
+    background-color:royalblue;
+    color: black;
 }
-
+*{
+    font-family: 'Times New Roman', Times, serif;
+}
 span {
     border-right: white solid 2px;
     margin-left: 20px;
     margin-right: 20px;
 }
 
-textarea {
-    height: 1em;
-    width: 250px;
-    resize: none;
+input {
+    height: 2vh;
+    width: 25%;
     overflow: hidden;
+    border: 1px solid white;
 }
-body{
+.flexbox{
     display: flex;
     flex-direction: column;
-    align-content: space-around;
     text-align: center;
+    border: 1px solid white;
+}
+input, label{
+    font-size: 125%;
+    border: 1px solid green;
 }
 .row{
+    display: flex;
+    justify-content: space-evenly;
     flex-direction: row;
+    margin: 1%;
+}
+.extraClass{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border: 1px solid black;
+}
+h1, h4{
+    border: 1px solid white;
+    margin: 1.5%;
 }

@@ -5,29 +5,96 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="./index.css">
 </head>
 
 <body>
-
-    <div class="row">
-        <label for="firstName">First Name*</label>
-        <textarea id="firstName" required></textarea>
-        <label for="lastName">Last Name*</label>
-        <textarea id="lastName" required></textarea>
+    <div class="flexbox">
+        <h1>Plane Ticket Form</h1>
+        <h4>* is required</h4>
+        <div class="row">
+            <label for="firstName">First Name*</label>
+            <input type="text" id="firstName">
+            <label for="lastName">Last Name*</label>
+            <input type="text" id="lastName">
+        </div>
+        <div class="row">
+            <label for="birth">Date of Birth*</label>
+            <input type="date" id="birth">
+            <label for="bags">Bag #</label>
+            <input type="text" id="bags">
+        </div>
+        <div class="row">
+            <label for="departCity">Departure City*</label>
+            <input type="text" id="departCity">
+            <label for="arriveCity">Arrival City*</label>
+            <input type="text" id="arriveCity">
+        </div>
+        <div class="row">
+            <label for="departDate">Departure Date*</label>
+            <input type="date" id="departDate">
+            <label for="returnDate">Return Date*</label>
+            <input type="date" id="returnDate">
+        </div>
+        <div>
+            <label for="meal">Type of Meal</label>
+            <div class="row">
+                <div class="col">
+                    <label for="chicken">Chicken</label>
+                    <input type="radio" id="chicken" name="meal">
+                </div>
+                <div class="col">
+                    <label for="fish">Fish</label>
+                    <input type="radio" id="fish" name="meal">
+                </div>
+                <div class="col">
+                    <label for="vegetarian">Vegetarian</label>
+                    <input type="radio" id="vegetarian" name="meal">
+                </div>
+            </div>
+        </div>
+        <div>
+            <label for="extra">Extras</label>
+            <div class="extraClass">
+                <input type="checkbox" id="legRoom" name="extra">
+                <label for="legRoom">Leg room</label>
+            </div>
+            <div class="extraClass">
+                <input type="checkbox" id="window" name="extra">
+                <label for="window">Window</label>
+            </div>
+            <div class="extraClass">
+                <input type="checkbox" id="headphones" name="extra">
+                <label for="headphones">Headphones</label>
+            </div>
+            <div class="extraClass">
+                <input type="checkbox" id="eatraMeal" name="extra">
+                <label for="eatraMeal">Extra Meal</label>
+            </div>
+        </div>
+        <!-- * First Name
+        * Last Name
+        * Date of Birth (format MM/DD/YYYY)
+        * City they are leaving from
+        * City they are going to
+        * Date leaving (format MM/DD/YYYY)
+        * Date returning(format MM/DD/YYYY)
+        Bags they are bringing (Number)
+        Type of meal - chicken, fish, vegetarian (radio button)
+        Extras - legroom, window seat, headphones, and/or extra food (checkboxes) -->
+        <div class="row">
+            <button onclick="addToList()">add</button>
+            <button onclick="print()">print</button>
+        </div>
+        
+        <!-- work in progress -->
+        <!-- <select onclick="populate()" id="selectNumber">
+                <option>Choose a number</option>
+            </select> -->
+        
+        <div id="printSpace"></div>
     </div>
-
-    <div class="row">
-        <button onclick="addToList()">add</button>
-        <button onclick="print()">print</button>
-    </div>
-
-    <!-- work in progress -->
-    <!-- <select onclick="populate()" id="selectNumber">
-        <option>Choose a number</option>
-    </select> -->
-
-    <div id="printSpace"></div>
+    
 
     <script src="index.js"></script>
 </body>
