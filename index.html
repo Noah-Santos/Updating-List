@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+    <div class="row">
+        <label for="firstName">First Name*</label>
+        <textarea id="firstName" required></textarea>
+        <label for="lastName">Last Name*</label>
+        <textarea id="lastName" required></textarea>
+    </div>
+
+    <div class="row">
+        <button onclick="addToList()">add</button>
+        <button onclick="print()">print</button>
+    </div>
+
+    <!-- work in progress -->
+    <!-- <select onclick="populate()" id="selectNumber">
+        <option>Choose a number</option>
+    </select> -->
+
+    <div id="printSpace"></div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
