@@ -7,12 +7,24 @@ html {
 *{
     font-family: 'Times New Roman', Times, serif;
 }
-/* span {
+span {
     border-right: white solid 2px;
     margin-left: 20px;
     margin-right: 20px;
-} */
-
+}
+/* prevents resizing of textareas */
+textarea{
+    resize: none;
+    width: 25vw;
+    /* overflow: scroll; */
+    /* background-color: royalblue; */
+    background-color:rgb(13, 14, 99);
+    border: none;
+    height: 25vh;
+    display: flex;
+    text-align: center;
+    margin: 1%;
+}
 /* resize input tags */
 input {
     height: 3vh;
@@ -79,7 +91,7 @@ h1, h3{
 }
 /* resize button font */
 button{
-    font-size: 125%;
+    font-size: 200%;
 }
 /* format for buttons */
 .buttonRow{
@@ -87,6 +99,7 @@ button{
     justify-content: space-evenly;
     flex-direction: row;
     align-items: center;
+    margin: 1%;
 }
 /* resizes for smaller screen */
 @media (max-width: 685px){

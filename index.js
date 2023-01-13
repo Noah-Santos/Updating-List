@@ -1,5 +1,5 @@
 class list {
-    constructor(firstName, lastName, birth, departCity, arriveCity, departDate, returnDate, id, cost, meal) {
+    constructor(firstName, lastName, birth, departCity, arriveCity, departDate, returnDate, id, cost, meal, time, drink) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.birth = birth;
@@ -9,10 +9,13 @@ class list {
         this.returnDate = returnDate;
         this.id = id;
         this.cost = cost;
-        this.meal = meal
+        this.meal = meal;
+        this.time = time;
+        this.drink = drink;
+        // this.age = age;
     }
 }
-
+ 
 //array for passenger objects
 passengers = []
 // array of required ids
@@ -23,11 +26,13 @@ let foodIDs = ["chicken", "fish", "vegetarian"];
 let checkBoxesID = ["legRoom", "window", "headphones", "extraMeal"];
 // id number
 let count = 1000;
-
+ 
  
 function addToList() {
     // starting cost of ticket
     let cost = 300;
+    // can passenger drink alcohol
+    let drink = false;
     // number of checkboxes selected
     let checkBoxes = 0;
     // creates variable to hold chosen food
@@ -55,7 +60,10 @@ function addToList() {
     cost += 20*bags + 10*checkBoxes;
     // creates object if requried info is filled out
     if (required == 7) {
-        let temp = new list(requireValue[0], requireValue[1], requireValue[2], requireValue[3], requireValue[4], requireValue[5], requireValue[6], count, cost, meal);
+        // let age = getAge();
+        // if(age>21)drink = true;
+        let time = getTime();
+        let temp = new list(requireValue[0], requireValue[1], requireValue[2], requireValue[3], requireValue[4], requireValue[5], requireValue[6], count, cost, meal, time, drink);
         // creates new id
         count++;
         // resets required values array
@@ -79,6 +87,19 @@ function addToList() {
     }
     console.log(passengers);
 }
+// function to calculate age of the person
+// function getAge(){
+//     let born = document.getElementById("birth").split("-");
+// }
+// function to calculate the travel time
+function getTime(){
+    let leave = document.getElementById("departDate").innerHTML.split("-");
+    let returns = document.getElementById("returnDate").innerHTML.split("-");
+    let years = returns[0] - leave[0];
+    let months = returns[1] - leave[1];
+    let days = returns[2] - leave[2];
+    return `${years} year(s), ${months} month(s), and ${days} day(s)`;
+}
  
 function print() {
     space = "";
@@ -97,3 +118,47 @@ function print() {
 //     }
 // }
  
+ 
+ 
+// function getTime(){
+//     // breaks down the dates into arrays
+//     let leave = document.getElementById("departDate").innerHTML.split("-");
+//     let returns = document.getElementById("returnDate").innerHTML.split("-");
+//     // converts the array variables into numbers
+//     for(let a = 0; a < leave.length; a++){
+//         leave[a] = Number(leave[a]);
+//     }
+//     for(let b = 0; b < returns.length; b++){
+//         returns[b] = Number(returns[b]);
+//     }
+//     // creates variable for each measure of time
+//     let years, months, days;
+//     years = months = days = 0;
+//     // if the return month is lower than the leave month, adjusts years to make it up
+//     if(returns[1] < leave[1]){
+//         years += returns[0] - leave[0] - 1;
+//         months += returns[1] + (12-leave[1]);
+//         console.log("next year");
+//     // calculates the months they are gone
+//     }else{
+//         years += returns[0] - leave[0];
+//         months += returns[1] - leave[1];
+//         console.log("same year");
+//     }
+//     // if return day is lower than leave day, adjust month accordingly
+//     if(returns[2] < leave[2]){
+//         months -= 1;
+//         days += returns[2] + (30-leave[2]);
+//         console.log("next month");
+//     // calculates the days they are gone
+//     }else{
+//         days += returns[2] - leave[2];
+//         console.log("same month");
+//     }
+//     creates an array to hold the time
+//     let times = [years, months, days];
+//     // returns the amount of time they are gone in the form of an array
+//     return times;
+//     return `${years} year(s), ${months} month(s), and ${days} day(s)`;
+// }
+
