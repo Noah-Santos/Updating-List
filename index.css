@@ -31,7 +31,7 @@ input {
 }
 /* edits font of text */
 input, label{
-    font-size: 125%;
+    font-size:150%;
     /* border: 1px solid purple; */
 }
 /* creates individual rows */
@@ -41,15 +41,22 @@ input, label{
     flex-direction: row;
     align-items: center;
 }
-/* creates special format for radio adn checkbox input tags */
-.extraClass{
+/* makes column flex */
+.col {
     display: flex;
     flex-direction: column;
-    align-items:center;
-    align-content: space-evenly;
-    /* width: 25%; */
-    /* justify-content: space-around; */
-    /* margin: 1%; */
+    margin: 1%;
+}
+/* stops the text in checkboxes from wrapping */
+.row > label{
+    white-space: nowrap;
+}
+/* creates special format for radio adn checkbox input tags */
+.extraClass, .meal{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: space-evenly;
     border: 1px solid black;
 }
 h1, h3{
@@ -68,3 +75,8 @@ h1, h3{
 button{
     font-size: 125%;
 }
+/* sets text of checkboxes to one line */
+/* .check{
+    width: 700%;
+    border: 1px solid black;
+} */

@@ -2,9 +2,16 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+    <meta name="author" content="Noah Santos">
+    <meta name="description" content="Plane Order Form">
+    <meta property="og:image" content="URL to image">
+    <meta property="og:description" content="Form to order tickets">
+    <meta property="og:title" content="Plane Ticket Form">
+    <link rel="icon" href="./planeIcon.png" type="image/x-icon">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="UTF-8">
+    <title>Plane Ticket Form</title>
     <link rel="stylesheet" href="./index.css">
 </head>
 
@@ -30,7 +37,7 @@
                 <input type="date" id="birth">
             </div>
             <div>
-                <label for="bags">Bag #</label>
+                <label for="bags">Bags ($20 per bag)</label>
                 <input type="text" id="bags">
             </div>
         </div>
@@ -54,52 +61,44 @@
                 <input type="date" id="returnDate">
             </div>
         </div>
-        <div class="meal">
+        <div class="col">
             <label for="meal">Type of Meal</label>
-            <div class="row">
-                <div class="col">
-                    <label for="chicken">Chicken</label>
+            <div class= "meal">
+                <div class="row">
                     <input type="radio" id="chicken" name="meal">
+                    <label for="chicken">Chicken</label>
                 </div>
-                <div class="col">
-                    <label for="fish">Fish</label>
+                <div class="row">
                     <input type="radio" id="fish" name="meal">
+                    <label for="fish">Fish</label>
                 </div>
-                <div class="col">
-                    <label for="vegetarian">Vegetarian</label>
+                <div class="row">
                     <input type="radio" id="vegetarian" name="meal">
+                    <label for="vegetarian">Vegetarian</label>
+                </div>
+            </div>  
+        </div>
+        <div class="col">
+            <label for="extra">Extras ($10 each)</label>
+            <div class="extraClass">
+                <div class="row">
+                    <input type="checkbox" id="legRoom" name="extra">
+                    <label for="legRoom" class="check">Extra Leg Space</label>
+                </div>
+                <div class="row">
+                    <input type="checkbox" id="window" name="extra">
+                    <label for="window" class="check">Window seat</label>
+                </div>
+                <div class="row">
+                    <input type="checkbox" id="headphones" name="extra">
+                    <label for="headphones" class="check">Headphone</label>
+                </div>
+                <div class="row">
+                    <input type="checkbox" id="extraMeal" name="extra">
+                    <label for="eatraMeal" class="check">Extra Meal</label>
                 </div>
             </div>
         </div>
-        <div class="extraClass">
-            <label for="extra">Extras</label>
-            <div class="row">
-                <input type="checkbox" id="legRoom" name="extra">
-                <label for="legRoom">Leg-space</label>
-            </div>
-            <div class="row">
-                <input type="checkbox" id="window" name="extra">
-                <label for="window">Window</label>
-            </div>
-            <div class="row">
-                <input type="checkbox" id="headphones" name="extra">
-                <label for="headphones">Headphones</label>
-            </div>
-            <div class="row">
-                <input type="checkbox" id="eatraMeal" name="extra">
-                <label for="eatraMeal">Extra Meal</label>
-            </div>
-        </div>
-        <!-- * First Name
-        * Last Name
-        * Date of Birth (format MM/DD/YYYY)
-        * City they are leaving from
-        * City they are going to
-        * Date leaving (format MM/DD/YYYY)
-        * Date returning(format MM/DD/YYYY)
-        Bags they are bringing (Number)
-        Type of meal - chicken, fish, vegetarian (radio button)
-        Extras - legroom, window seat, headphones, and/or extra food (checkboxes) -->
         <div class="row">
             <button onclick="addToList()">add</button>
             <button onclick="print()">print</button>
