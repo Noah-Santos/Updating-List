@@ -29,9 +29,9 @@ function addToList() {
     let requireValue = [];
     // adds values of required information to array
     for(let i = 0; i <requiredIDs.length; i++){
-        requireValue.push(document.getElementById(requireIDs[i]).value);
+        requireValue.push(document.getElementById(requiredIDs[i]).value);
         // adds 1 for every required information filled
-        if(document.getElementById(requireIDs[i]).value != ""){
+        if(document.getElementById(requiredIDs[i]).value != ""){
             required++;
         }
     }
@@ -55,17 +55,17 @@ function addToList() {
         count++;
         // resets required values array
         for(let x = 0; x <requiredIDs.length; x++){
-            document.getElementById(requireIDs[x]).value = "";
+            document.getElementById(requiredIDs[x]).value = "";
         }
         passengers.push(temp);
-        document.getElementById("firstName").value = "";
-        document.getElementById("lastName").value = "";
-        document.getElementById("birth").value = "";
-        document.getElementById("departCity").value = "";
-        document.getElementById("arriveCity").value = "";
-        document.getElementById("departDate").value = "";
-        document.getElementById("returnDate").value = "";
-        document.getElementById("bags").value = "";
+        // document.getElementById("firstName").value = "";
+        // document.getElementById("lastName").value = "";
+        // document.getElementById("birth").value = "";
+        // document.getElementById("departCity").value = "";
+        // document.getElementById("arriveCity").value = "";
+        // document.getElementById("departDate").value = "";
+        // document.getElementById("returnDate").value = "";
+        // document.getElementById("bags").value = "";
         cost = 300;
     }else{
         alert("Please fill in all of the required information.");
