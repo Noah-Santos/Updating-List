@@ -1,5 +1,5 @@
 class list {
-    constructor(firstName, lastName, birth, departCity, arriveCity, departDate, returnDate, id) {
+    constructor(firstName, lastName, birth, departCity, arriveCity, departDate, returnDate, id, cost, meal) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.birth = birth;
@@ -8,6 +8,8 @@ class list {
         this.departDate = departDate;
         this.returnDate = returnDate;
         this.id = id;
+        this.cost = cost;
+        this.meal = meal
     }
 }
 
@@ -15,14 +17,21 @@ class list {
 passengers = []
 // array of required ids
 let requiredIDs = ["firstName", "lastName", "birth", "departCity", "arriveCity", "departDate", "returnDate"];
-// array of extra add on options
+// array of food option ids
+let foodIDs = ["chicken", "fish", "vegetarian"];
+// array of extra add on options ids
 let checkBoxesID = ["legRoom", "window", "headphones", "extraMeal"];
+// id number
 let count = 1000;
-let cost = 300;
 
-let checkBoxes = 0;
  
 function addToList() {
+    // starting cost of ticket
+    let cost = 300;
+    // number of checkboxes selected
+    let checkBoxes = 0;
+    // creates variable to hold chosen food
+    let meal;
     // checks to see if required info is filled in
     let required = 0;
     // array of required values
@@ -31,42 +40,40 @@ function addToList() {
     for(let i = 0; i <requiredIDs.length; i++){
         requireValue.push(document.getElementById(requiredIDs[i]).value);
         // adds 1 for every required information filled
-        if(document.getElementById(requiredIDs[i]).value != ""){
-            required++;
-        }
+        if(document.getElementById(requiredIDs[i]).value != "") required++;
     }
-    // let firstName = document.getElementById("firstName").value;
-    // let lastName = document.getElementById("lastName").value;
-    // let birth = document.getElementById("birth").value;
-    // let departCity = document.getElementById("departCity").value;
-    // let arriveCity = document.getElementById("arriveCity").value;
-    // let departDate = document.getElementById("departDate").value;
-    // let returnDate = document.getElementById("returnDate").value;
     let bags = document.getElementById("bags").value;
-    if(document.getElementById("legRoom").checked) checkBoxes++;
-    if(document.getElementById("window").checked) checkBoxes++;
-    if(document.getElementById("headphones").checked) checkBoxes++;
-    if(document.getElementById("extraMeal").checked) checkBoxes++;
-    // console.log(checkBox1);
-    cost += 20*bags;
+    // checks to see how many extra features were selected
+    for(let y = 0; y< checkBoxesID.length; y++){
+        if(document.getElementById(checkBoxesID[y]).checked)checkBoxes++;
+    }
+    // finds the id of the food chosen
+    for(let f = 0; f< foodIDs.length; f++){
+        if(document.getElementById(foodIDs[f]).checked)meal = foodIDs[f];
+    }
+    // calculates cost of ticket
+    cost += 20*bags + 10*checkBoxes;
     // creates object if requried info is filled out
     if (required == 7) {
-        let temp = new list(requireValue[0], requireValue[1], requireValue[2], requireValue[3], requireValue[4], requireValue[5], requireValue[6], count);
+        let temp = new list(requireValue[0], requireValue[1], requireValue[2], requireValue[3], requireValue[4], requireValue[5], requireValue[6], count, cost, meal);
+        // creates new id
         count++;
         // resets required values array
         for(let x = 0; x <requiredIDs.length; x++){
             document.getElementById(requiredIDs[x]).value = "";
         }
+        // resets bags
+        document.getElementById("bags").value = "";
+        // resets checkBoxes
+        for(let z = 0; z <checkBoxesID.length; z++){
+            document.getElementById(checkBoxesID[z]).checked = false;
+        }
+        // resets meal
+        for(let c = 0; c <foodIDs.length; c++){
+            document.getElementById(foodIDs[c]).checked = false;
+        }
+        // adds the created object to the array
         passengers.push(temp);
-        // document.getElementById("firstName").value = "";
-        // document.getElementById("lastName").value = "";
-        // document.getElementById("birth").value = "";
-        // document.getElementById("departCity").value = "";
-        // document.getElementById("arriveCity").value = "";
-        // document.getElementById("departDate").value = "";
-        // document.getElementById("returnDate").value = "";
-        // document.getElementById("bags").value = "";
-        cost = 300;
     }else{
         alert("Please fill in all of the required information.");
     }

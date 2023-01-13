@@ -1,7 +1,7 @@
 /* sets colors */
 html {
-    background-color:royalblue;
-    color: black;
+    background-color:rgb(13, 14, 99);
+    color: white;
 }
 /* changes font */
 *{
@@ -15,7 +15,7 @@ html {
 
 /* resize input tags */
 input {
-    height: 2vh;
+    height: 3vh;
     width: 50%;
     overflow: hidden;
     /* border: 1px solid white; */
@@ -32,12 +32,18 @@ input {
 /* edits font of text */
 input, label{
     font-size:150%;
+    color: white;
     /* border: 1px solid purple; */
 }
 /* creates individual rows */
 .row{
     display: flex;
+    flex-direction: row;
+    align-items: center;
     justify-content: space-evenly;
+}
+.row2{
+    display: flex;
     flex-direction: row;
     align-items: center;
 }
@@ -48,7 +54,7 @@ input, label{
     margin: 1%;
 }
 /* stops the text in checkboxes from wrapping */
-.row > label{
+.row2 > label{
     white-space: nowrap;
 }
 /* creates special format for radio adn checkbox input tags */
@@ -75,8 +81,32 @@ h1, h3{
 button{
     font-size: 125%;
 }
-/* sets text of checkboxes to one line */
-/* .check{
-    width: 700%;
-    border: 1px solid black;
-} */
+/* format for buttons */
+.buttonRow{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    align-items: center;
+}
+/* resizes for smaller screen */
+@media (max-width: 685px){
+    /* changes meal and extras to column */
+    .extraClass, .meal{
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+    /* shrinks width of radio and checkbox buttons */
+    .click{
+        width: 5vw;
+    }
+    *{
+        margin: 1%;
+    }
+}
+@media (max-width: 407px){
+    /* changes the rows to columns */
+    .row{
+        flex-direction: column;
+    }
+}
