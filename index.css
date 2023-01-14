@@ -40,7 +40,6 @@ input {
     display: flex;
     flex-direction: column;
     text-align: center;
-    border: 1px solid white;
 }
 /* edits font of text */
 input, label{
@@ -96,9 +95,6 @@ input, label{
     flex-direction: row;
     text-align: center;
     justify-content: space-evenly;
-}
-h1, h3{
-    border: 1px solid white;
 }
 /* creates margin */
 .margin{
