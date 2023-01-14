@@ -140,9 +140,13 @@ button{
 }
 /* changes styling of the information on the info page */
 informations{
-    font-size: 150%;
+    font-size: 125%;
     width: 20vw;
     border: 1px solid black;
+    white-space: nowrap;
+}
+/* puts margins between the different info in the info page */
+.info > div{
     margin: 1%;
 }
 /* button to close info page */
