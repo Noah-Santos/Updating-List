@@ -1,5 +1,5 @@
 class list {
-    constructor(firstName, lastName, birth, departCity, arriveCity, departDate, returnDate, id, cost, meal, drink, age, time) {
+    constructor(firstName, lastName, birth, departCity, arriveCity, departDate, returnDate, id, cost, meal, drink, age, time, bags, extras) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.birth = birth;
@@ -13,6 +13,8 @@ class list {
         this.drink = drink;
         this.age = age;
         this.time = time;
+        this.bags = bags;
+        this.extras = extras;
     }
 }
  
@@ -39,6 +41,8 @@ function addToList() {
     let meal;
     // checks to see if required info is filled in
     let required = 0;
+    // gets the extras that they selected
+    let extras = ""
     // array of required values
     let requireValue = [];
     // adds values of required information to array
@@ -50,7 +54,10 @@ function addToList() {
     let bags = document.getElementById("bags").value;
     // checks to see how many extra features were selected
     for(let y = 0; y< checkBoxesID.length; y++){
-        if(document.getElementById(checkBoxesID[y]).checked)checkBoxes++;
+        if(document.getElementById(checkBoxesID[y]).checked){
+            checkBoxes++;
+            extras += checkBoxesID[y] + " ";
+        }
     }
     // finds the id of the food chosen
     for(let f = 0; f< foodIDs.length; f++){
@@ -64,7 +71,7 @@ function addToList() {
         if(age>21)drink = true;
         let time = getTime();
         // passes descriptors to object constructor
-        let temp = new list(requireValue[0], requireValue[1], requireValue[2], requireValue[3], requireValue[4], requireValue[5], requireValue[6], count, cost, meal, drink, age, time);
+        let temp = new list(requireValue[0], requireValue[1], requireValue[2], requireValue[3], requireValue[4], requireValue[5], requireValue[6], count, cost, meal, drink, age, time, bags, extras);
         // creates new id
         count++;
         // resets required values array
@@ -152,11 +159,12 @@ function getTime(){
     // returns the amount of time they are gone in the form of an array
     return(times); 
 }
- 
+
+// prints the list of passengers
 function print() {
     space = "";
     for (let i = 0; i < passengers.length; i++) {
-        space += `<div><span>${passengers[i].id}</span>${passengers[i].firstName} ${passengers[i].lastName}</div>`
+        space += `<div><span>${passengers[i].id} </span><text>${passengers[i].firstName} ${passengers[i].lastName}</text></div>`
     }
     document.getElementById("printSpace").innerHTML = space;
 }

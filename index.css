@@ -7,10 +7,15 @@ html {
 *{
     font-family: 'Times New Roman', Times, serif;
 }
+/* changes styling of the passengers when printed */
 span {
     border-right: white solid 2px;
     margin-left: 20px;
     margin-right: 20px;
+    font-size: 150%;
+}
+text{
+    font-size: 150%;
 }
 /* prevents resizing of textareas */
 textarea{
