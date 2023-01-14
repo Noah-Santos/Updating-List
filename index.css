@@ -52,6 +52,25 @@ input, label{
     color: white;
     /* border: 1px solid purple; */
 }
+/* modifes the search row */
+.search{
+    display: flex;
+    flex-direction: row;
+    font-size: 150%;
+    justify-content: space-around;
+    color: white;
+    width: 100%;
+}
+#searchBar{
+    height:3.8vh;
+    border: none;
+    margin-left: 3%;
+    width: 25vw;
+}
+#searchBut{
+    height:4vh;
+    border: none;
+}
 /* creates individual rows */
 .row{
     display: flex;
@@ -96,7 +115,12 @@ h1, h3{
 }
 /* resize button font */
 button{
+    display: flex;
     font-size: 200%;
+    background-color: royalblue;
+    border: none;
+    color: white;
+    align-items: center;
 }
 /* format for buttons */
 .buttonRow{
@@ -105,6 +129,27 @@ button{
     flex-direction: row;
     align-items: center;
     margin: 1%;
+}
+/* edits the info screen for when users are searched */
+.info{
+    /* visibility: hidden; */
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    /* justify-content: space-around; */
+    align-items: center;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    background-color: royalblue;
+}
+/* button to close info page */
+.closePage{
+    margin: 1%;
+    margin-top: 3%;
+    background-color: rgb(13, 14, 99);
+    color: white;
 }
 /* resizes for smaller screen */
 @media (max-width: 685px){
@@ -126,5 +171,8 @@ button{
     /* changes the rows to columns */
     .row{
         flex-direction: column;
+    }
+    #searchBar{
+        font-size: 100%;
     }
 }

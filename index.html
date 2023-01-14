@@ -21,6 +21,12 @@
             <h1>Plane Ticket Form</h1>
             <h3>(* is required)</h3>
         </div>
+        <div class="search">
+            <div class="row">
+                <input type="text" placeholder="Name" id="searchBar">
+                <button id="searchBut" onclick="search()"><iconify-icon icon="ic:baseline-search"></iconify-icon></button>
+            </div>
+        </div>
         <div class="row margin">
             <div>
                 <label for="firstName">First Name*</label>
@@ -114,9 +120,15 @@
        
         <div id="printSpace"></div>
     </div>
+    <div class="info" id="information">
+        <div class="close">
+            <button onclick="closes()" class="closePage">Close</button>
+        </div>
+    </div>
    
  
     <script src="index.js"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
 </body>
  
 </html>

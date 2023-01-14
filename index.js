@@ -168,7 +168,25 @@ function print() {
     }
     document.getElementById("printSpace").innerHTML = space;
 }
- 
+
+// gets the passenger that the user inputed
+function search(){
+    let name = document.getElementById("searchBar").value.toLowerCase();
+    let fName = name.split(" ");
+    for(let s = 0; s < passengers.length; s++){
+        if(passengers[s].firstName == fName[0] || passenegers[s].id == fName[0]){
+
+        }
+    }
+    document.getElementById("information").style.visibility="visible";
+}
+
+// hides the info page
+function closes(){
+    document.getElementById("information").style.visibility="hidden";
+    console.log('yaya')
+}
+
 // work in progress
 // function populate() {
 //     var select = document.getElementById("selectNumber");
