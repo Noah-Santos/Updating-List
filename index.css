@@ -21,8 +21,6 @@ text{
 textarea{
     resize: none;
     width: 25vw;
-    /* overflow: scroll; */
-    /* background-color: royalblue; */
     background-color:rgb(13, 14, 99);
     border: none;
     height: 25vh;
@@ -35,9 +33,7 @@ input {
     height: 3vh;
     width: 50%;
     overflow: hidden;
-    /* border: 1px solid white; */
     background-color: royalblue;
-    /* border-bottom: 1px solid black; */
 }
 /* create flexbox to center itemd horizonatlly */
 .flexbox{
@@ -50,7 +46,6 @@ input {
 input, label{
     font-size:150%;
     color: white;
-    /* border: 1px solid purple; */
 }
 /* modifes the search row */
 .search{
@@ -61,12 +56,14 @@ input, label{
     color: white;
     width: 100%;
 }
+/* modifies search bar */
 #searchBar{
     height:3.8vh;
     border: none;
     margin-left: 3%;
     width: 25vw;
 }
+/* modifies search button */
 #searchBut{
     height:4vh;
     border: none;
@@ -99,7 +96,6 @@ input, label{
     flex-direction: row;
     text-align: center;
     justify-content: space-evenly;
-    border: 1px solid black;
 }
 h1, h3{
     border: 1px solid white;
@@ -110,7 +106,6 @@ h1, h3{
 }
 /* creates smaller margin for radio and checkbox inputs */
 .meal, .extraClass{
-    border: 1px solid black;
     margin: .25%;
 }
 /* resize button font */
@@ -132,11 +127,10 @@ button{
 }
 /* edits the info screen for when users are searched */
 .info{
-    /* visibility: hidden; */
+    visibility: hidden;
     display: flex;
     position: fixed;
     flex-direction: column;
-    /* justify-content: space-around; */
     align-items: center;
     top: 10%;
     left: 10%;
@@ -144,11 +138,22 @@ button{
     height: 80%;
     background-color: royalblue;
 }
+/* changes styling of the information on the info page */
+informations{
+    font-size: 150%;
+    width: 20vw;
+    border: 1px solid black;
+    margin: 1%;
+}
 /* button to close info page */
 .closePage{
-    margin: 1%;
+    margin: .5%;
     margin-top: 3%;
     background-color: rgb(13, 14, 99);
+    color: white;
+}
+/* changes placeholder text color */
+::placeholder{
     color: white;
 }
 /* resizes for smaller screen */

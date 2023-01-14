@@ -27,8 +27,15 @@ let foodIDs = ["chicken", "fish", "vegetarian"];
 // array of extra add on options ids
 let checkBoxesID = ["legRoom", "window", "headphones", "extraMeal"];
 // id number
-let count = 1000;
- 
+let count = 1003;
+
+// creating 3 passengers
+let noah = new list("Noah", "Santos", "2006-06-26", "Phoenix", "San Francisco", "2023-06-26", "2023-06-30", 1000, 330, "chicken", false, 16, 1, "legRoom");
+let andrew = new list("Andrew", "Murphy", "2006-03-28", "Phoenix", "New York", "2023-03-15", "2023-09-24", 1001, 330, "vegetarian", false, 16, 1, "legRoom window");
+let john = new list("John", "Rotolante", "2005-07-19", "Phoenix", "Houstan", "2024-01-01", "2024-01-15", 1002, 350, "fish", false, 17, 2, "legRoom headPhones");
+passengers.push(noah)
+passengers.push(andrew);
+passengers.push(john);
  
 function addToList() {
     // starting cost of ticket
@@ -111,13 +118,13 @@ function getAge(){
     }
     // checks to see if their birthday happened
     if(curMonth >= birthDay[1]){
-        return curYear - birthDay[0];
+        return curYear - birthDay[0] + 1;
     }else if(curMonth == birthDay[1]){
         if(curDay >= birthDay[2]){
-            return curYear - birthDay[0];
+            return curYear - birthDay[0] + 1;
         }
     }else{
-        return curYear - birthDay[0] - 1;
+        return curYear - birthDay[0];
     }
 }
 
@@ -171,20 +178,54 @@ function print() {
 
 // gets the passenger that the user inputed
 function search(){
-    let name = document.getElementById("searchBar").value.toLowerCase();
+    let continues = false;
+    // holds index of searched passenger
+    let index = 0;
+    // getsi input and splits the data
+    let name = document.getElementById("searchBar").value;
     let fName = name.split(" ");
+    // loops through passenger array
     for(let s = 0; s < passengers.length; s++){
-        if(passengers[s].firstName == fName[0] || passenegers[s].id == fName[0]){
-
+        // checks values to find the index
+        if(fName.length > 1){
+            if(passengers[s].firstName == fName[0] && passengers[s].lastName == fName[1]){
+                index = s;
+                continues = true;
+            }
+        }else if(fName.length == 1){
+            if(passengers[s].id == Number(fName[0])){
+                index = s;
+                continues = true;
+            }
+        }else{
+            alert("That user has not been found");
+            
+            document.getElementById("searchBar").value ="";
+            break;
         }
     }
-    document.getElementById("information").style.visibility="visible";
+    if(continues){
+        // makes info pannel visible
+        document.getElementById("information").style.visibility="visible";
+        // holds info to put on info page
+        let passInfo = "";
+        // holds the passenger object
+        let person = passengers[index]
+        // loops though to add all information of passenger
+        for(let key in person){
+            passInfo += `<div><informations>${key}: ${person[key]}</informations></div>`;
+        }
+        // adds info to page
+        document.getElementById("information").innerHTML += passInfo;
+        // clears search bar
+    }
+    document.getElementById("searchBar").value ="";
 }
 
-// hides the info page
+// hides the info page and clears it
 function closes(){
     document.getElementById("information").style.visibility="hidden";
-    console.log('yaya')
+    document.getElementById("information").innerHTML = "<button onclick='closes()' class='closePage'>Close</button>";
 }
 
 // work in progress
