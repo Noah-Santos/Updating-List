@@ -87,12 +87,16 @@
 //     // return `${years} year(s), ${months} month(s), and ${days} day(s)`;   
 // }
 
+leave = "2023-01-15";
+returns = "2023-01-27";
 // array to hold the days in the 12 months
 let monthDays = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 function getTime(){
     // breaks down the dates into arrays
-    let leave = document.getElementById("departDate").innerHTML.split("-");
-    let returns = document.getElementById("returnDate").innerHTML.split("-");
+    // let leave = document.getElementById("departDate").innerHTML.split("-");
+    // let returns = document.getElementById("returnDate").innerHTML.split("-");
+        leave = leave.split("-");
+    returns = returns.split("-");
     // converts the array variables into numbers
     for(let a = 0; a < leave.length; a++){
         leave[a] = Number(leave[a]);
@@ -123,13 +127,6 @@ function getTime(){
     // creates an array to hold the time
     let times = [years, months, days];
     // returns the amount of time they are gone in the form of an array
-    return times; 
+    console.log(times); 
 }
- 
-function print() {
-    space = "";
-    for (let i = 0; i < passengers.length; i++) {
-        space += `<div><span>${passengers[i].id}</span>${passengers[i].firstName} ${passengers[i].lastName}</div>`
-    }
-    document.getElementById("printSpace").innerHTML = space;
-}
+getTime();

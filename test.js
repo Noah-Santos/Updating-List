@@ -14,7 +14,7 @@
 //         time[d] = Number(time[d]);
 //     }
 //     // gets date of birth and splits it and turns values into numbers
-//     let birthDay = document.getElementById("birth").ariaValueMax.split("-");
+//     let birthDay = document.getElementById("birth").value.split("-");
 //     for(let f = 0; f < birthDay.length; f++){
 //         birthDay[f] = Number(birthDay[f]);
 //     }

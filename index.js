@@ -1,5 +1,5 @@
 class list {
-    constructor(firstName, lastName, birth, departCity, arriveCity, departDate, returnDate, id, cost, meal, time, drink, age) {
+    constructor(firstName, lastName, birth, departCity, arriveCity, departDate, returnDate, id, cost, meal, drink, age, time) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.birth = birth;
@@ -10,9 +10,9 @@ class list {
         this.id = id;
         this.cost = cost;
         this.meal = meal;
-        this.time = time;
         this.drink = drink;
         this.age = age;
+        this.time = time;
     }
 }
  
@@ -63,7 +63,8 @@ function addToList() {
         let age = getAge();
         if(age>21)drink = true;
         let time = getTime();
-        let temp = new list(requireValue[0], requireValue[1], requireValue[2], requireValue[3], requireValue[4], requireValue[5], requireValue[6], count, cost, meal, time, drink, age);
+        // passes descriptors to object constructor
+        let temp = new list(requireValue[0], requireValue[1], requireValue[2], requireValue[3], requireValue[4], requireValue[5], requireValue[6], count, cost, meal, drink, age, time);
         // creates new id
         count++;
         // resets required values array
@@ -117,8 +118,8 @@ function getAge(){
 let monthDays = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 function getTime(){
     // breaks down the dates into arrays
-    let leave = document.getElementById("departDate").innerHTML.split("-");
-    let returns = document.getElementById("returnDate").innerHTML.split("-");
+    let leave = document.getElementById("departDate").value.split("-");
+    let returns = document.getElementById("returnDate").value.split("-");
     // converts the array variables into numbers
     for(let a = 0; a < leave.length; a++){
         leave[a] = Number(leave[a]);
@@ -147,9 +148,9 @@ function getTime(){
         days += returns[2] - leave[2];
     }
     // creates an array to hold the time
-    let times = [years, months, days];
+    let times = `${years} years, ${months} months, ${days} days`;
     // returns the amount of time they are gone in the form of an array
-    return times; 
+    return(times); 
 }
  
 function print() {
